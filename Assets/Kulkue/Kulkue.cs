@@ -19,7 +19,7 @@ public class Kulkue : MonoBehaviour
 	List<KulkijaState> activeKulkijas = new List<KulkijaState>();
 
 
-	const float spawnInterval = 0.2f;
+	const float spawnInterval = 0.8f;
 	float lastSpawnTime = 0;
 
 	// Start is called before the first frame update
