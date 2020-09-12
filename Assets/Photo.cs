@@ -42,7 +42,7 @@ public class Photo : MonoBehaviour
         for (int i = floatingScores.Count; i-- > 0; )
         {
             FloatingScore floatingScore = floatingScores[i];
-            floatingScore.pos.y += Time.deltaTime * 1.0f;
+            floatingScore.pos.y += Time.deltaTime * 3.0f;
             floatingScores[i] = floatingScore;
             if (floatingScore.pos.y > 20.0f)
                 floatingScores.RemoveAt(i);
