@@ -53,6 +53,9 @@ TagManager:
   - name: Foreground
     uniqueID: 3529850025
     locked: 0
+  - name: ForegroundBush
+    uniqueID: 871990255
+    locked: 0
   - name: PlayerLayer
     uniqueID: 3626516191
     locked: 0

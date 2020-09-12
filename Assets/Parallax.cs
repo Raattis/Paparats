@@ -13,6 +13,11 @@ public class Parallax : MonoBehaviour
     {
         playerPosition = GameObject.FindObjectOfType<PlayerPosition>();
         originalPos = transform.localPosition;
+
+        foreach (SpriteRenderer spriteRenderer in GetComponentsInChildren<SpriteRenderer>())
+        {
+            spriteRenderer.sortingOrder = (int)(parallaxScale * 1000.0f);
+        }
     }
 
     void Update()
