@@ -133,6 +133,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8685805204301774125, guid: 045f7b84a92bea649ba7bab732a33805, type: 3}
   m_PrefabInstance: {fileID: 8685805204005761973}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &400286101
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1203035935}
+    m_Modifications:
+    - target: {fileID: 2057690999973973668, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057690999973973668, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057690999973973668, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057690999973973668, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057690999973973668, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057690999973973668, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057690999973973668, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057690999973973668, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057690999973973668, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057690999973973668, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057690999973973668, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2404836366291193784, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
+      propertyPath: m_Name
+      value: Kulkue
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7639754424b5b0f4b99ffebc3330300e, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
