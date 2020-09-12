@@ -14,6 +14,21 @@ public class CelebBoundingBox : MonoBehaviour
 	Box biggestBox;
 	float visibleArea;
 
+	public float score
+	{
+		get
+		{
+			switch (bodyPart)
+			{
+				case BodyPart.Body: return visibleArea;
+				case BodyPart.Feet: return visibleArea * visibleArea * 1.5f;
+				case BodyPart.Tail: return visibleArea * 0.4f;
+				case BodyPart.Head: return visibleArea * visibleArea * 3.0f;
+			}
+			return visibleArea;
+		}
+	}
+
 	public enum BodyPart {
 		Head,
 		Body,

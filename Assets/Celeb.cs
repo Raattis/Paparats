@@ -19,10 +19,21 @@ public class Celeb : MonoBehaviour
 	{
 		float speed = 1.0f;
 		float speedX = 1.0f;
-		float pathLengthX = 10.0f;
+		float pathLengthX = 20.0f;
 		progress += Time.deltaTime * speed;
 		float y = Mathf.Cos(progress);
 		float x = Mathf.PingPong(progress * speedX + pathLengthX * 0.5f, pathLengthX) - pathLengthX * 0.5f;
+		x += Mathf.Sin(progress * 3.0f) * 0.5f;
 		transform.localPosition = originalPosition + new Vector2(x, y);
+	}
+
+	public float GetScore()
+	{
+		float score = 0.0f;
+
+		foreach (CelebBoundingBox celebBoundingBox in GetComponentsInChildren<CelebBoundingBox>())
+			score += celebBoundingBox.score;
+
+		return Mathf.Round(score * score * 1.0f);
 	}
 }
