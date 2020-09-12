@@ -12,7 +12,7 @@ public class Kulkue : MonoBehaviour
 
 	class KulkijaState
 	{
-		public Transform trans;
+		public Parallax parallax;
 		public float walkDir = 1;
 		public float speed = 5;
 	}
@@ -40,11 +40,13 @@ public class Kulkue : MonoBehaviour
 			GameObject go = GameObject.Instantiate<GameObject>(kulkijaPrefab, transform, false);
 
 			KulkijaState kulkija = new KulkijaState();
-			kulkija.trans = go.transform;
+			kulkija.parallax = go.GetComponent<Parallax>();
 			kulkija.walkDir = Random.value < 0.5 ? -1 : 1;
 			kulkija.speed = Random.value * 2 + 5f;
 
-			kulkija.trans.localPosition = new Vector3(walkArea.localScale.x / 2 * -1 * kulkija.walkDir, 0, 0);
+			kulkija.parallax.transform.localPosition = new Vector3(walkArea.localScale.x / 2 * -1 * kulkija.walkDir, walkArea.localPosition.y, 0);
+			kulkija.parallax.parallaxScale = 0.6f + ((Random.value * 2f) - 1f) * 0.75f;
+			kulkija.parallax.gameObject.GetComponent<SpriteRenderer>().sortingOrder = kulkija.parallax.parallaxScale < 0.6 ? -1 : 1;
 
 			activeKulkijas.Add(kulkija);
 
@@ -55,12 +57,12 @@ public class Kulkue : MonoBehaviour
 		{
 			KulkijaState kulkija = activeKulkijas[i];
 
-			kulkija.trans.localPosition += new Vector3(kulkija.walkDir * Time.deltaTime * kulkija.speed, 0, 0);
+			kulkija.parallax.originalPos += new Vector3(kulkija.walkDir * Time.deltaTime * kulkija.speed, 0, 0);
 
-			if (kulkija.trans.localPosition.x * kulkija.walkDir > walkArea.localScale.x / 2f)
+			if (kulkija.parallax.originalPos.x * kulkija.walkDir > walkArea.localScale.x / 2f)
 			{
 				// Exiting walk area. Despawn.
-				GameObject.Destroy(kulkija.trans.gameObject);
+				GameObject.Destroy(kulkija.parallax.gameObject);
 				activeKulkijas.RemoveAt(i);
 				continue;
 			}

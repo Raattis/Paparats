@@ -6,7 +6,8 @@ public class Parallax : MonoBehaviour
 {
     public float parallaxScale = 1.0f;
 
-    Vector3 originalPos;
+    [System.NonSerialized]
+    public Vector3 originalPos;
     PlayerPosition playerPosition;
 
     void Start()
