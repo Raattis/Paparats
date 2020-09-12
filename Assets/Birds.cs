@@ -48,7 +48,7 @@ public class Birds : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		float t = Time.time;
+		float t = getTime();
 		
 		bool moveToState = false;
 		if (state != nextState)
