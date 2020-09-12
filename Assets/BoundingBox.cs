@@ -79,10 +79,13 @@ public class BoundingBox : MonoBehaviour
     public Box boundingBox { get { return new Box(pos, size); } }
 
     public bool obstruction = false;
+    public bool dontHideSprite = false;
 
 	void Start()
     {
-
+        if (!dontHideSprite)
+            foreach (SpriteRenderer spriteRenderer in GetComponentsInChildren<SpriteRenderer>())
+                spriteRenderer.enabled = false;
     }
 
     void Update()

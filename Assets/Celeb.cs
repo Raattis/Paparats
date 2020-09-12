@@ -16,7 +16,7 @@ public class Celeb : MonoBehaviour
 
 	Vector2 originalPosition;
 
-	Box biggestRect;
+	Box biggestBox;
 	float visibleArea;
 
 
@@ -86,17 +86,18 @@ public class Celeb : MonoBehaviour
 		}
 
 		if (biggestObstructionArea > 0.0f)
-			this.biggestRect = biggestObstruction;
+			this.biggestBox = biggestObstruction;
 		else if (smallestHoleArea < 1.0f)
-			this.biggestRect = smallestHole;
+			this.biggestBox = smallestHole;
 		else
-			this.biggestRect = boundingBox;
+			this.biggestBox = boundingBox;
 
 		this.visibleArea = visibleArea;
 	}
 
 	private void OnGUI()
 	{
-		biggestRect.onGuiBox("Score: " + Mathf.Round(visibleArea * 100.0f));
+		biggestBox.onGuiBox("Score: " + Mathf.Round(visibleArea * 100.0f));
+		GUIUtility.ExitGUI();
 	}
 }

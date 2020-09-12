@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8492255871287031493
+--- !u!1 &187024968296153971
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8492255871287031492}
-  - component: {fileID: 8492255871287031491}
+  - component: {fileID: 187024968296153964}
+  - component: {fileID: 187024968296153965}
   m_Layer: 0
-  m_Name: hole
+  m_Name: clouds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8492255871287031492
+--- !u!4 &187024968296153964
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8492255871287031493}
+  m_GameObject: {fileID: 187024968296153971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.49, y: -2.25, z: 0}
-  m_LocalScale: {x: 844.7424, y: 259.88785, z: 218.85292}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8492255871287031491
+--- !u!114 &187024968296153965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8492255871287031493}
+  m_GameObject: {fileID: 187024968296153971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ddf1f07be3759b4580c354541df8032, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ec12577c24b6f2478042f168b06a4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstruction: 0
-  dontHideSprite: 0
+  min: {x: -40, y: 0}
+  max: {x: 40, y: 5}
+  cloudPrefabs:
+  - {fileID: 6668793202343610570, guid: 01d4b278a3e379548a27e230b33678fe, type: 3}
+  - {fileID: 2930641815104156120, guid: 948cc27e0d166434985e3a2c6488f374, type: 3}
