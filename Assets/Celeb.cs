@@ -9,14 +9,14 @@ public class Celeb : MonoBehaviour
 	public Vector2 pos { get { return new Vector2(transform.position.x, transform.position.y) - size * 0.5f; } }
 	public Vector2 size { get { return new Vector2(transform.lossyScale.x, transform.lossyScale.y) * 0.136f; } }
 
-	public Rect boundingBox { get { return new Rect(pos, size); } }
+	public Box boundingBox { get { return new Box(pos, size); } }
 
 	List<BoundingBox> holes = new List<BoundingBox>();
 	List<BoundingBox> obstructions = new List<BoundingBox>();
 
 	Vector2 originalPosition;
 
-	Rect biggestRect;
+	Box biggestRect;
 	float visibleArea;
 
 
@@ -44,16 +44,16 @@ public class Celeb : MonoBehaviour
 	public void UpdateVisibility()
 	{
 		float smallestHoleArea = 1.0f;
-		Rect smallestHole = boundingBox;
+		Box smallestHole = boundingBox;
 		float biggestObstructionArea = 0.0f;
-		Rect biggestObstruction = boundingBox;
+		Box biggestObstruction = boundingBox;
 		float visibleArea = 0.0f;
 		foreach (BoundingBox hole in holes)
 		{
 			if (!hole.enabled)
 				continue;
 
-			Rect visibleThroughHole = boundingBox.clip(hole.boundingBox);
+			Box visibleThroughHole = boundingBox.clip(hole.boundingBox);
 			float visibleThroughHoleArea = boundingBox.overlap(hole.boundingBox);
 			if (smallestHoleArea > visibleThroughHoleArea && visibleThroughHoleArea > 0.0f)
 			{

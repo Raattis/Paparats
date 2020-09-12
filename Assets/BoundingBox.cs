@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct Rect
+public struct Box
 {
     public float x;
     public float y;
@@ -15,14 +15,14 @@ public struct Rect
     public Vector2 bottomLeft { get { return new Vector2(x, y + h); } }
     public Vector2 bottomRight { get { return new Vector2(x + w, y + h); } }
 
-    public Rect(float x, float y, float w, float h)
+    public Box(float x, float y, float w, float h)
     {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
     }
-    public Rect(Vector2 pos, Vector2 size)
+    public Box(Vector2 pos, Vector2 size)
     {
         x = pos.x;
         y = pos.y;
@@ -35,16 +35,16 @@ public struct Rect
         return Mathf.Max(w, 0.0f) * Mathf.Max(h, 0.0f);
     }
 
-    public Rect clip(Rect other)
+    public Box clip(Box other)
     {
         float minX = Mathf.Max(x, other.x);
         float minY = Mathf.Max(y, other.y);
         float maxX = Mathf.Min(x + w, other.x + other.w);
         float maxY = Mathf.Min(y + h, other.y + other.h);
-        return new Rect(minX, minY, Mathf.Max(0.0f, maxX - minX), Mathf.Max(0.0f, maxY - minY));
+        return new Box(minX, minY, Mathf.Max(0.0f, maxX - minX), Mathf.Max(0.0f, maxY - minY));
     }
 
-    public float overlap(Rect other)
+    public float overlap(Box other)
     {
         float area = Mathf.Max(w, 0.0001f) * Mathf.Max(h, 0.0001f);
         float clippedArea = this.clip(other).getArea();
@@ -67,7 +67,7 @@ public struct Rect
         style.normal.textColor = Color.white;
         style.fontSize = 30;
 
-        GUI.Box(new UnityEngine.Rect(screenPoint, screenPoint2 - screenPoint), text);
+        GUI.Box(new Rect(screenPoint, screenPoint2 - screenPoint), text);
 
     }
 };
@@ -76,7 +76,7 @@ public class BoundingBox : MonoBehaviour
 {
 	public Vector2 pos { get { return new Vector2(transform.position.x, transform.position.y) - size * 0.5f; } }
 	public Vector2 size { get { return new Vector2(transform.lossyScale.x, transform.lossyScale.y) * 0.136f; } }
-    public Rect boundingBox { get { return new Rect(pos, size); } }
+    public Box boundingBox { get { return new Box(pos, size); } }
 
     public bool obstruction = false;
 
