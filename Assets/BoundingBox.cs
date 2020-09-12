@@ -61,6 +61,9 @@ public struct Box
 
     public void onGuiBox(string text)
     {
+        if (true)
+            return;
+
         Vector3 screenPoint = Camera.main.WorldToScreenPoint(new Vector2(bottomLeft.x, -bottomLeft.y));
         Vector3 screenPoint2 = Camera.main.WorldToScreenPoint(new Vector2(topRight.x, -topRight.y));
         GUIStyle style = GUIStyle.none;
