@@ -507,7 +507,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: foreground
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4029011550794406616, guid: 93d22a77d42712949b674281ce66bed3, type: 3}
+      propertyPath: parallaxScale
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969391668438922336, guid: 93d22a77d42712949b674281ce66bed3, type: 3}
+      propertyPath: parallaxScale
+      value: 0.85
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 230174062341546495, guid: 93d22a77d42712949b674281ce66bed3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 93d22a77d42712949b674281ce66bed3, type: 3}
 --- !u!1001 &716006603274789458
 PrefabInstance:
