@@ -101,7 +101,7 @@ public class CelebBoundingBox : MonoBehaviour
 
 	private void OnGUI()
 	{
-		biggestBox.onGuiBox("Score: " + Mathf.Round(visibleArea * 100.0f));
+		biggestBox.onGuiBox("" + bodyPart + ": " + Mathf.Round(visibleArea * 100.0f));
 		GUIUtility.ExitGUI();
 	}
 }
