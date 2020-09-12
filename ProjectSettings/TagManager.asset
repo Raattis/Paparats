@@ -56,6 +56,9 @@ TagManager:
   - name: ForegroundBush
     uniqueID: 871990255
     locked: 0
+  - name: ForegroundBirds
+    uniqueID: 170593695
+    locked: 0
   - name: PlayerLayer
     uniqueID: 3626516191
     locked: 0
