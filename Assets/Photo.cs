@@ -27,7 +27,7 @@ public class Photo : MonoBehaviour
     List<FloatingScore> floatingScores = new List<FloatingScore>();
 
     float money = 0.0f;
-    int filmLeft = 2;
+    int filmLeft = 16;
 
     void Start()
     {
