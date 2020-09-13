@@ -100,7 +100,7 @@ public class Photo : MonoBehaviour
             GUIStyle style = GUIStyle.none;
             style.normal.textColor = new Color(1.0f, 0.9f, 0.3f);
             style.fontStyle = FontStyle.Bold;
-            style.fontSize = Mathf.RoundToInt(Mathf.Lerp(20.0f, 50.0f, Mathf.Clamp01((floatingScore.score - 10.0f) / 60.0f)));
+            style.fontSize = Mathf.RoundToInt(Mathf.Lerp(60.0f, 100.0f, Mathf.Clamp01((floatingScore.score - 10.0f) / 60.0f)));
             style.fontSize = scaleFont(style.fontSize);
             style.alignment = TextAnchor.MiddleCenter;
 
