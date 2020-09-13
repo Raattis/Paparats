@@ -29,6 +29,11 @@ public class FinalScore : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
+    static int scaleFont(int orig)
+    {
+        return Mathf.RoundToInt(orig * Mathf.Lerp(-0.05f, 0.8f, Camera.main.pixelHeight / 1300.0f));
+    }
+
     void OnGUI()
     {
         if (!ended)
@@ -37,7 +42,8 @@ public class FinalScore : MonoBehaviour
         GUIStyle style = GUIStyle.none;
         style.normal.textColor = new Color(1.0f, 1.0f, 0.2f);
         style.fontStyle = FontStyle.Bold;
-        style.fontSize = 60;
+        style.fontSize = 80;
+        style.fontSize = scaleFont(style.fontSize);
         style.alignment = TextAnchor.MiddleCenter;
 
         Rect pixelRect = Camera.main.pixelRect;

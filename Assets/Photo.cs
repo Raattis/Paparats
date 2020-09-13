@@ -83,6 +83,11 @@ public class Photo : MonoBehaviour
         GameObject.FindObjectOfType<Flash>().flash();
     }
 
+    static int scaleFont(int orig)
+    {
+        return Mathf.RoundToInt(orig * Mathf.Lerp(-0.05f, 0.8f, Camera.main.pixelHeight / 1300.0f));
+    }
+
     private void OnGUI()
     {
         FinalScore finalScore = FindObjectOfType<FinalScore>();
@@ -96,6 +101,7 @@ public class Photo : MonoBehaviour
             style.normal.textColor = new Color(1.0f, 0.9f, 0.3f);
             style.fontStyle = FontStyle.Bold;
             style.fontSize = Mathf.RoundToInt(Mathf.Lerp(20.0f, 50.0f, Mathf.Clamp01((floatingScore.score - 10.0f) / 60.0f)));
+            style.fontSize = scaleFont(style.fontSize);
             style.alignment = TextAnchor.MiddleCenter;
 
             GUI.Label(new Rect(screenPoint.x - 500.0f, screenPoint.y - 50.0f, 1000.0f, 100.0f), "" + floatingScore.score + "€", style);
@@ -105,15 +111,16 @@ public class Photo : MonoBehaviour
             GUIStyle style = GUIStyle.none;
             style.normal.textColor = new Color(1.0f, 1.0f, 0.5f, 0.8f);
             style.fontStyle = FontStyle.Bold;
-            style.fontSize = 70;
+            style.fontSize = 45;
+            style.fontSize = scaleFont(style.fontSize);
             style.alignment = TextAnchor.MiddleCenter;
 
             Rect pixelRect = Camera.main.pixelRect;
             Rect iconRect = pixelRect;
-            iconRect.x += pixelRect.width * 0.44f;
+            iconRect.height *= 0.1f;
+            iconRect.width = iconRect.height;
+            iconRect.x = pixelRect.width * 0.5f - iconRect.width;
             iconRect.y += pixelRect.height * 0.02f;
-            iconRect.width *= 0.1f;
-            iconRect.height = iconRect.width;
             GUI.DrawTexture(iconRect, moneyTexture);
 
             Rect textRect = iconRect;
@@ -123,6 +130,9 @@ public class Photo : MonoBehaviour
             style.normal.textColor = new Color(0.0f, 0.0f, 0.0f, 0.5f);
             iconRect.x += iconRect.width;
             GUI.DrawTexture(iconRect, filmTexture);
+
+            style.fontSize = 60;
+            style.fontSize = scaleFont(style.fontSize);
 
             textRect = iconRect;
             textRect.y -= iconRect.height * 0.02f;
