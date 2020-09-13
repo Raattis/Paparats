@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+    <folder id="0">
+        <file id="0" name="Taso 1.png" width="113" height="254" pivot_x="0.495575" pivot_y="0.893701"/>
+        <file id="1" name="Taso 2.png" width="146" height="294" pivot_x="0.486301" pivot_y="0.914966"/>
+        <file id="2" name="Taso 3.png" width="156" height="224" pivot_x="0.737179" pivot_y="0.924107"/>
+        <file id="3" name="Taso 5.png" width="140" height="180" pivot_x="0.0928571" pivot_y="0.888889"/>
+        <file id="4" name="Taso 6.png" width="163" height="189" pivot_x="0.490798" pivot_y="0.026455"/>
+        <file id="5" name="Taso 7.png" width="243" height="374" pivot_x="0.432099" pivot_y="0.967914"/>
+        <file id="6" name="Taso 4.png" width="177" height="231" pivot_x="0.751412" pivot_y="0.926407"/>
+        <file id="7" name="Taso 8.png" width="313" height="366" pivot_x="0.696486" pivot_y="0.248634"/>
+    </folder>
+    <entity id="0" name="entity_000">
+        <obj_info name="bone_000" type="bone" w="336.669" h="10"/>
+        <obj_info name="bone_001" type="bone" w="90.3802" h="10"/>
+        <obj_info name="bone_002" type="bone" w="167.345" h="10"/>
+        <obj_info name="bone_003" type="bone" w="252.2" h="10"/>
+        <obj_info name="bone_004" type="bone" w="209.939" h="10"/>
+        <obj_info name="bone_005" type="bone" w="109.641" h="10"/>
+        <obj_info name="bone_006" type="bone" w="168.076" h="10"/>
+        <obj_info name="bone_007" type="bone" w="135.352" h="10"/>
+        <animation id="0" name="NewAnimation" length="2000" interval="100">
+            <mainline>
+                <key id="0">
+                    <bone_ref id="0" timeline="8" key="0"/>
+                    <bone_ref id="1" parent="0" timeline="9" key="0"/>
+                    <bone_ref id="2" parent="1" timeline="10" key="0"/>
+                    <bone_ref id="3" parent="0" timeline="11" key="0"/>
+                    <bone_ref id="4" parent="0" timeline="12" key="0"/>
+                    <bone_ref id="5" parent="0" timeline="13" key="0"/>
+                    <bone_ref id="6" parent="0" timeline="14" key="0"/>
+                    <bone_ref id="7" parent="0" timeline="15" key="0"/>
+                    <object_ref id="0" parent="4" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" parent="7" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" parent="5" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" parent="0" timeline="3" key="0" z_index="3"/>
+                    <object_ref id="4" parent="3" timeline="4" key="0" z_index="4"/>
+                    <object_ref id="5" parent="1" timeline="5" key="0" z_index="5"/>
+                    <object_ref id="6" parent="6" timeline="6" key="0" z_index="6"/>
+                    <object_ref id="7" parent="2" timeline="7" key="0" z_index="7"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="Taso 1">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-1.230447" y="3.253082" angle="83.53018"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="Taso 3">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" x="-7.404416" y="-2.061917" angle="104.257035"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="Taso 5">
+                <key id="0" spin="0">
+                    <object folder="0" file="3" x="-13.903871" y="-0.581236" angle="63.183653"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="Taso 7">
+                <key id="0" spin="0">
+                    <object folder="0" file="5" x="357.042507" y="-5.296116" angle="268.53589"/>
+                </key>
+            </timeline>
+            <timeline id="4" name="Taso 2">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="-5.6652" y="-2.270551" angle="86.088428"/>
+                </key>
+            </timeline>
+            <timeline id="5" name="Taso 6">
+                <key id="0" spin="0">
+                    <object folder="0" file="4" x="-48.14501" y="5.099141" angle="267.954592"/>
+                </key>
+            </timeline>
+            <timeline id="6" name="Taso 4">
+                <key id="0" spin="0">
+                    <object folder="0" file="6" x="10.404208" y="-0.675311" angle="101.813145"/>
+                </key>
+            </timeline>
+            <timeline id="7" name="Taso 8">
+                <key id="0" spin="0">
+                    <object folder="0" file="7" x="-22.138319" y="-8.975012" angle="264.838902"/>
+                </key>
+            </timeline>
+            <timeline id="8" obj="0" name="bone_000" object_type="bone">
+                <key id="0" spin="0">
+                    <bone x="-33.333333" y="-239.784946" angle="91.46411"/>
+                </key>
+            </timeline>
+            <timeline id="9" obj="1" name="bone_001" object_type="bone">
+                <key id="0" spin="0">
+                    <bone x="354.915182" y="-1.541975" angle="0.581298"/>
+                </key>
+            </timeline>
+            <timeline id="10" obj="2" name="bone_002" object_type="bone">
+                <key id="0" spin="0">
+                    <bone x="106.690812" y="4.797249" angle="3.11569"/>
+                </key>
+            </timeline>
+            <timeline id="11" obj="3" name="bone_003" object_type="bone">
+                <key id="0" spin="0">
+                    <bone x="104.933267" y="-60.765479" angle="182.447462"/>
+                </key>
+            </timeline>
+            <timeline id="12" obj="4" name="bone_004" object_type="bone">
+                <key id="0" spin="0">
+                    <bone x="78.905146" y="57.142354" angle="185.00571"/>
+                </key>
+            </timeline>
+            <timeline id="13" obj="5" name="bone_005" object_type="bone">
+                <key id="0" spin="0">
+                    <bone x="76.329464" y="-127.79845" angle="205.352237"/>
+                </key>
+            </timeline>
+            <timeline id="14" obj="6" name="bone_006" object_type="bone">
+                <key id="0" spin="0">
+                    <bone x="362.638792" y="-78.108402" angle="166.722745"/>
+                </key>
+            </timeline>
+            <timeline id="15" obj="7" name="bone_007" object_type="bone">
+                <key id="0" spin="0">
+                    <bone x="336.222602" y="66.69985" angle="164.278855"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>
