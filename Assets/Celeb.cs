@@ -19,7 +19,7 @@ public class Celeb : MonoBehaviour
 	{
 		float speed = 1.0f;
 		float speedX = 1.0f;
-		float pathLengthX = 40.0f;
+		float pathLengthX = 35.0f;
 		progress += Time.deltaTime * speed;
 		float y = Mathf.Cos(progress + Mathf.PI * 0.75f);
 		float x = Mathf.PingPong(progress * speedX + pathLengthX * 0.5f, pathLengthX) - pathLengthX * 0.5f;

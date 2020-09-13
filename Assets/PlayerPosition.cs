@@ -22,6 +22,10 @@ public class PlayerPosition : MonoBehaviour
 
     void Update()
     {
+        FinalScore finalScore = FindObjectOfType<FinalScore>();
+        if (finalScore == null || finalScore.isGameOver)
+            return;
+
         x += Time.deltaTime * speed.x * Input.GetAxis("Horizontal");
         y += Time.deltaTime * speed.y * Input.GetAxis("Vertical");
 
