@@ -126,7 +126,7 @@ public class Birds : MonoBehaviour
 		
 	void OnGUI()
 	{
-		GUI.Label(new Rect(200, 10, 500, 50), $"State elapsed: {getTime() - stateStartedTime}, state: {state.ToString()}, bird count {birds.Count}");
+		//GUI.Label(new Rect(200, 10, 500, 50), $"State elapsed: {getTime() - stateStartedTime}, state: {state.ToString()}, bird count {birds.Count}");
 	}
 
 	float getTime()
