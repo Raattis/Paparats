@@ -510,10 +510,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: foreground_bush
       objectReference: {fileID: 0}
-    - target: {fileID: 3718560143803768962, guid: 8a33d8748192fab41a50aa172884dc00, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a33d8748192fab41a50aa172884dc00, type: 3}
 --- !u!4 &5747770977148580685 stripped
@@ -637,10 +633,6 @@ PrefabInstance:
     - target: {fileID: 230174062341546433, guid: 93d22a77d42712949b674281ce66bed3, type: 3}
       propertyPath: m_Name
       value: foreground
-      objectReference: {fileID: 0}
-    - target: {fileID: 230174062341546433, guid: 93d22a77d42712949b674281ce66bed3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93d22a77d42712949b674281ce66bed3, type: 3}
