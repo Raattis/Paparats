@@ -103,7 +103,7 @@ public class Photo : MonoBehaviour
 
         {
             GUIStyle style = GUIStyle.none;
-            style.normal.textColor = new Color(1.0f, 1.0f, 0.4f, 0.7f);
+            style.normal.textColor = new Color(1.0f, 1.0f, 0.5f, 0.8f);
             style.fontStyle = FontStyle.Bold;
             style.fontSize = 70;
             style.alignment = TextAnchor.MiddleCenter;
@@ -126,6 +126,7 @@ public class Photo : MonoBehaviour
 
             textRect = iconRect;
             textRect.y -= iconRect.height * 0.02f;
+            textRect.x -= iconRect.height * 0.01f;
             GUI.Label(textRect, "" + filmLeft, style);
         }
     }
