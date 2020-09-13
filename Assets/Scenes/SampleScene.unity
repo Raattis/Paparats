@@ -279,14 +279,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8193712343798233652, guid: b9229b70e1e801f458e257b066234450, type: 3}
-      propertyPath: parallaxScale
-      value: 0.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 8643478666678593779, guid: b9229b70e1e801f458e257b066234450, type: 3}
-      propertyPath: parallaxScale
-      value: 0.95
-      objectReference: {fileID: 0}
     - target: {fileID: 8961835602299745506, guid: b9229b70e1e801f458e257b066234450, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -334,14 +326,6 @@ PrefabInstance:
     - target: {fileID: 8961835602299745507, guid: b9229b70e1e801f458e257b066234450, type: 3}
       propertyPath: m_Name
       value: world
-      objectReference: {fileID: 0}
-    - target: {fileID: 8961835603610643596, guid: b9229b70e1e801f458e257b066234450, type: 3}
-      propertyPath: maxX
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8961835603610643596, guid: b9229b70e1e801f458e257b066234450, type: 3}
-      propertyPath: minX
-      value: -20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9229b70e1e801f458e257b066234450, type: 3}
