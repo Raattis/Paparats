@@ -46,8 +46,24 @@ public class Kulkue : MonoBehaviour
 			kulkija.parallax = go.AddComponent<Parallax>();
 			kulkija.parallax.transform.localPosition = new Vector3(walkArea.localScale.x / 2 * -1 * kulkija.walkDir, walkArea.localPosition.y, 0);
 			kulkija.parallax.parallaxScale = 0.6f + ((Random.value * 2f) - 1f) * 0.2f;
+			
+			bool isBehindCeleb = kulkija.parallax.parallaxScale < 0.6;
 
-			go.GetComponent<Spriter2UnityDX.EntityRenderer>().SortingOrder = kulkija.parallax.parallaxScale < 0.6 ? -1 : 1;
+			var renderers = go.GetComponentsInChildren<Spriter2UnityDX.EntityRenderer>();
+			foreach (var renderer in renderers)
+			{
+				renderer.SortingOrder = isBehindCeleb ? -1 : 1;
+				renderer.SortingLayerName = "Celeb";
+			}
+
+			if (isBehindCeleb)
+			{
+				var boundingboxes = go.GetComponentsInChildren<BoundingBox>();
+				foreach (var bb in boundingboxes)
+				{
+					bb.enabled = false;
+				}
+			}
 
 			activeKulkijas.Add(kulkija);
 

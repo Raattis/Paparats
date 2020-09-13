@@ -84,7 +84,7 @@ public class BoundingBox : MonoBehaviour
     public bool obstruction = false;
     public bool dontHideSprite = false;
 
-	void Start()
+	void Awake()
     {
         if (!dontHideSprite)
             foreach (SpriteRenderer spriteRenderer in GetComponentsInChildren<SpriteRenderer>())
