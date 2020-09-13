@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Bgm : MonoBehaviour
 {
-    static float startTime = 0.0f;
+    static float levelStartTime = 0.0f;
 
     void Awake()
     {
-        startTime = Time.time + 0.5f;
+        levelStartTime = Time.time + 0.5f;
 
         bool notAlone = false;
         foreach (Bgm bgm in FindObjectsOfType<Bgm>())
@@ -38,32 +38,45 @@ public class Bgm : MonoBehaviour
         }
         else if (Application.loadedLevel == 0)
         {
-            if (Input.anyKeyDown && Time.time > startTime)
+            if (Input.anyKeyDown && Time.time > levelStartTime)
             {
                 Application.LoadLevel(1);
             }
         }
     }
 
+    static public void shadedText(Rect rect, string text, int fontHeight, Color color)
+    {
+        GUIStyle style = GUIStyle.none;
+        float alpha = Mathf.Clamp01((levelStartTime + 3.0f - Time.time) / 1.0f);
+        style.normal.textColor = new Color(0.8f, 0.7f, 1.0f, alpha);
+        style.fontStyle = FontStyle.Bold;
+        style.fontSize = Photo.scaleFont(fontHeight);
+        style.alignment = TextAnchor.MiddleCenter;
+
+        style.normal.textColor = new Color(0, 0, 0, color.a * color.a);
+        rect.x -= 1;
+        rect.y -= 1;
+        GUI.Label(rect, text, style);
+        rect.x += 2;
+        GUI.Label(rect, text, style);
+        rect.y += 2;
+        GUI.Label(rect, text, style);
+        rect.x -= 2;
+        GUI.Label(rect, text, style);
+        rect.x += 1;
+        rect.y -= 1;
+        style.normal.textColor = color;
+        GUI.Label(rect, text, style);
+    }
+
     private void OnGUI()
     {
         if (Application.loadedLevel == 0)
         {
-            GUIStyle style = GUIStyle.none;
-            style.normal.textColor = new Color(0.8f, 0.7f, 1.0f, 0.8f);
-            style.fontStyle = FontStyle.Bold;
-            style.fontSize = 300;
-            style.fontSize = Photo.scaleFont(style.fontSize);
-            style.alignment = TextAnchor.MiddleCenter;
-
             Rect pixelRect = Camera.main.pixelRect;
             pixelRect.height *= 0.2f;
-            GUI.Label(pixelRect, "Paparats", style);
-
-            style.normal.textColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-            style.fontStyle = FontStyle.Bold;
-            style.fontSize = 80;
-            style.fontSize = Photo.scaleFont(style.fontSize);
+            shadedText(pixelRect, "Paparats", 300, new Color(0.8f, 0.7f, 1.0f, 0.8f));
 
             pixelRect = Camera.main.pixelRect;
             pixelRect.y = Camera.main.pixelRect.height * 0.69f;
@@ -71,7 +84,15 @@ public class Bgm : MonoBehaviour
             float width = Camera.main.pixelRect.height * 0.1f;
             pixelRect.x += (Camera.main.pixelRect.width - width) * 0.44f;
             pixelRect.width = width * 0.5f;
-            GUI.Label(pixelRect, "You are a paparazzi rat\non a mission. Take good\nphotos of the Celebcat.\nThe better the photos\nthe more you earn.", style);
+            shadedText(pixelRect, "You are a paparazzi rat\non a mission. Take good\nphotos of the Celebcat.\nThe better the photos\nthe more you earn.", 100, new Color(0.8f, 0.7f, 1.0f, 0.8f));
+        }
+        else if (Application.loadedLevel == 1 && levelStartTime + 5.0f > Time.time)
+        {
+            Rect pixelRect = Camera.main.pixelRect;
+            pixelRect.y = Camera.main.pixelRect.height * 0.4f;
+            pixelRect.height *= 0.2f;
+            float alpha = Mathf.Clamp01((levelStartTime + 3.0f - Time.time) / 1.0f);
+            shadedText(pixelRect, "Fly with W,A,S,D.\nTake photos with Space.", 100, new Color(0.8f, 0.7f, 1.0f, alpha));
         }
     }
 }

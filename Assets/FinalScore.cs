@@ -39,21 +39,16 @@ public class FinalScore : MonoBehaviour
         if (!ended)
             return;
 
-        GUIStyle style = GUIStyle.none;
-        style.normal.textColor = new Color(1.0f, 1.0f, 0.2f);
-        style.fontStyle = FontStyle.Bold;
-        style.fontSize = 80;
-        style.fontSize = scaleFont(style.fontSize);
-        style.alignment = TextAnchor.MiddleCenter;
+        Color textColor = new Color(1.0f, 1.0f, 0.2f);
 
         Rect pixelRect = Camera.main.pixelRect;
         pixelRect.y -= 50;
-        GUI.Label(pixelRect, "Money money money " + finalScore + "€", style);
+        Bgm.shadedText(pixelRect, "Money money money " + finalScore + "€", 80, textColor);
 
         if (endTime + restartDuration < Time.time)
         {
             pixelRect.y += 100;
-            GUI.Label(pixelRect, "Press any button to restart", style);
+            Bgm.shadedText(pixelRect, "Press any button to restart", 80, textColor);
         }
     }
 }

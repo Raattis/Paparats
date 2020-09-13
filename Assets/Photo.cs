@@ -97,14 +97,9 @@ public class Photo : MonoBehaviour
         foreach (FloatingScore floatingScore in floatingScores)
         {
             Vector3 screenPoint = Camera.main.WorldToScreenPoint(new Vector2(floatingScore.pos.x, -floatingScore.pos.y));
-            GUIStyle style = GUIStyle.none;
-            style.normal.textColor = new Color(1.0f, 0.9f, 0.3f);
-            style.fontStyle = FontStyle.Bold;
-            style.fontSize = Mathf.RoundToInt(Mathf.Lerp(60.0f, 100.0f, Mathf.Clamp01((floatingScore.score - 10.0f) / 60.0f)));
-            style.fontSize = scaleFont(style.fontSize);
-            style.alignment = TextAnchor.MiddleCenter;
-
-            GUI.Label(new Rect(screenPoint.x - 500.0f, screenPoint.y - 50.0f, 1000.0f, 100.0f), "" + floatingScore.score + "€", style);
+            Color textColor = new Color(1.0f, 0.9f, 0.3f);
+            int fontHeight = Mathf.RoundToInt(Mathf.Lerp(60.0f, 100.0f, Mathf.Clamp01((floatingScore.score - 10.0f) / 60.0f)));
+            Bgm.shadedText(new Rect(screenPoint.x - 500.0f, screenPoint.y - 50.0f, 1000.0f, 100.0f), "" + floatingScore.score + "€", fontHeight, textColor);
         }
 
         {
@@ -125,7 +120,7 @@ public class Photo : MonoBehaviour
 
             Rect textRect = iconRect;
             textRect.y -= iconRect.height * 0.02f;
-            GUI.Label(textRect, "" + money, style);
+            Bgm.shadedText(textRect, "" + money, 45, style.normal.textColor);
 
             style.normal.textColor = new Color(0.0f, 0.0f, 0.0f, 0.5f);
             iconRect.x += iconRect.width;
