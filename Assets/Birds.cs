@@ -68,6 +68,8 @@ public class Birds : MonoBehaviour
 				{
 					bird.offset = Vector2.zero;
 					bird.trans.localPosition = bird.originalPosition;
+
+					bird.trans.GetComponent<Animator>().SetInteger("animState", 0);
 				}
 
 				if (stateElapsed > groundDuration)
@@ -80,8 +82,9 @@ public class Birds : MonoBehaviour
 				foreach (var bird in birds)
 				{
 					bird.offset += new Vector2(0, Time.deltaTime * 4f);
-
 					bird.trans.localPosition = bird.originalPosition + bird.offset;
+
+					bird.trans.GetComponent<Animator>().SetInteger("animState", 1);
 				}
 
 				if (stateElapsed > riseDuration)
