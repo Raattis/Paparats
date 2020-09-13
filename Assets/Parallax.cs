@@ -28,13 +28,13 @@ public class Parallax : MonoBehaviour
 
     private void OnGUI()
     {
-        GUIStyle style = GUIStyle.none;
-        style.normal.textColor = Color.red;
-        style.fontStyle = FontStyle.Bold;
-        style.fontSize = 40;
-        style.alignment = TextAnchor.MiddleCenter;
-
-        Vector3 screenPoint = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, -transform.position.y));
-        GUI.Label(new Rect(screenPoint.x - 500.0f, screenPoint.y - 200.0f, 1000.0f, 100.0f), "" + Mathf.RoundToInt(parallaxScale * 100), style);
+        //GUIStyle style = GUIStyle.none;
+        //style.normal.textColor = Color.red;
+        //style.fontStyle = FontStyle.Bold;
+        //style.fontSize = 40;
+        //style.alignment = TextAnchor.MiddleCenter;
+        //
+        //Vector3 screenPoint = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, -transform.position.y));
+        //GUI.Label(new Rect(screenPoint.x - 500.0f, screenPoint.y - 200.0f, 1000.0f, 100.0f), "" + Mathf.RoundToInt(parallaxScale * 100), style);
     }
 }
