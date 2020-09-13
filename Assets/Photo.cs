@@ -83,7 +83,7 @@ public class Photo : MonoBehaviour
         GameObject.FindObjectOfType<Flash>().flash();
     }
 
-    static int scaleFont(int orig)
+    static public int scaleFont(int orig)
     {
         return Mathf.RoundToInt(orig * Mathf.Lerp(-0.05f, 0.8f, Camera.main.pixelHeight / 1300.0f));
     }
