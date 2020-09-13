@@ -15,6 +15,9 @@ public class PlayerPosition : MonoBehaviour
 	public float maxY = 3.0f;
 	private Vector2 speed = new Vector2(3.0f, 1.0f);
 
+    private Vector2 touchStart = Vector2.zero;
+    private int touchId = -1;
+
     void Start()
     {
         
@@ -26,8 +29,49 @@ public class PlayerPosition : MonoBehaviour
         if (finalScore == null || finalScore.isGameOver)
             return;
 
-        x += Time.deltaTime * speed.x * Input.GetAxis("Horizontal");
-        y += Time.deltaTime * speed.y * Input.GetAxis("Vertical");
+        Vector2 touchDelta = Vector2.zero;
+        if (Input.touchCount > 0)
+        {
+            Vector2 delta = (Input.touches[0].position - touchStart) / Camera.main.pixelHeight * 2.0f;
+            if (Input.touches[0].phase == TouchPhase.Ended && delta.magnitude < 0.002f && Input.touches[0].fingerId == touchId)
+            {
+                Photo.TakePhoto();
+            }
+            else if (Input.touches[0].phase == TouchPhase.Began)
+            {
+                touchStart = Input.touches[0].position;
+                touchId = Input.touches[0].fingerId;
+            }
+            else if (Input.touches[0].fingerId == touchId)
+            {
+                touchDelta = delta;
+            }
+
+        }
+        else if (touchId == -1)
+        {
+            Vector2 mouseDelta = (new Vector2(Input.mousePosition.x, Input.mousePosition.y) - touchStart) / Camera.main.pixelHeight * 2.0f;
+            if (Input.GetMouseButtonUp(0) && mouseDelta.magnitude < 0.002f)
+            {
+                Photo.TakePhoto();
+            }
+            else if (Input.GetMouseButtonDown(0))
+            {
+                touchStart = Input.mousePosition;
+                touchId = -1;
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                touchDelta = mouseDelta;
+            }
+
+        }
+
+        float horizontal = touchDelta.x + Input.GetAxis("Horizontal");
+        float vertical = touchDelta.y + Input.GetAxis("Vertical");
+
+        x += Time.deltaTime * speed.x * horizontal;
+        y += Time.deltaTime * speed.y * vertical;
 
 		x = Mathf.Clamp(x, minX, maxX);
 		y = Mathf.Clamp(y, minY, maxY);

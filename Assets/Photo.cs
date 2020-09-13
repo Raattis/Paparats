@@ -34,33 +34,19 @@ public class Photo : MonoBehaviour
         
     }
 
+    float reloadDuration = 1.0f;
     void Update()
     {
         FinalScore finalScore = FindObjectOfType<FinalScore>();
         if (finalScore == null || finalScore.isGameOver)
             return;
 
-        float reloadDuration = 1.0f;
-
         if (reloadTimer > 0)
             reloadTimer -= Time.deltaTime;
 
         if (Input.GetButtonDown("Fire1") && reloadTimer <= 0.0f && filmLeft > 0)
         {
-            TakePhoto();
-            reloadTimer = reloadDuration;
-
-            Celeb celeb = GameObject.FindObjectOfType<Celeb>();
-            float score = celeb.GetScore();
-            floatingScores.Add(new FloatingScore(score, celeb.transform.position + new Vector3(0.0f, 1.0f, 0.0f)));
-
-            money += score;
-            filmLeft -= 1;
-
-            if (filmLeft <= 0)
-                finalScore.GameOver(money);
-
-            GetComponent<AudioSource>().PlayOneShot(shutter);
+            TakePhotoImpl();
         }
 
         if (reloadTimer + Time.deltaTime >= reloadDuration * 0.7f && reloadTimer < reloadDuration * 0.7f)
@@ -78,9 +64,28 @@ public class Photo : MonoBehaviour
         }
     }
 
-    void TakePhoto()
+    public void TakePhotoImpl()
     {
+        reloadTimer = reloadDuration;
+
+        Celeb celeb = GameObject.FindObjectOfType<Celeb>();
+        float score = celeb.GetScore();
+        floatingScores.Add(new FloatingScore(score, celeb.transform.position + new Vector3(0.0f, 1.0f, 0.0f)));
+
+        money += score;
+        filmLeft -= 1;
+
+        GetComponent<AudioSource>().PlayOneShot(shutter);
+
         GameObject.FindObjectOfType<Flash>().flash();
+
+        if (filmLeft <= 0)
+            FindObjectOfType<FinalScore>().GameOver(money);
+    }
+
+    static public void TakePhoto()
+    {
+        FindObjectOfType<Photo>().TakePhotoImpl();
     }
 
     static public int scaleFont(int orig)
