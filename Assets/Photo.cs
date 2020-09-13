@@ -44,7 +44,7 @@ public class Photo : MonoBehaviour
         if (reloadTimer > 0)
             reloadTimer -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Fire1") && reloadTimer <= 0.0f && filmLeft > 0)
+        if (Input.GetButtonDown("Fire1"))
         {
             TakePhotoImpl();
         }
@@ -66,6 +66,9 @@ public class Photo : MonoBehaviour
 
     public void TakePhotoImpl()
     {
+        if (reloadTimer > 0.0f || filmLeft <= 0)
+            return;
+
         reloadTimer = reloadDuration;
 
         Celeb celeb = GameObject.FindObjectOfType<Celeb>();

@@ -86,13 +86,18 @@ public class Bgm : MonoBehaviour
             pixelRect.width = width * 0.5f;
             shadedText(pixelRect, "You are a paparazzi rat\non a mission. Take good\nphotos of the Celebcat.\nThe better the photos\nthe more you earn.", 100, new Color(0.8f, 0.7f, 1.0f, 0.8f));
         }
-        else if (Application.loadedLevel == 1 && levelStartTime + 5.0f > Time.time)
+        else if (Application.loadedLevel == 1 && levelStartTime + 10.0f > Time.time)
         {
             Rect pixelRect = Camera.main.pixelRect;
             pixelRect.y = Camera.main.pixelRect.height * 0.4f;
             pixelRect.height *= 0.2f;
-            float alpha = Mathf.Clamp01((levelStartTime + 3.0f - Time.time) / 1.0f);
-            shadedText(pixelRect, "Fly with W,A,S,D.\nTake photos with Space.", 100, new Color(0.8f, 0.7f, 1.0f, alpha));
+            float alpha = Mathf.Clamp01((levelStartTime + 7.0f - Time.time) / 1.0f);
+
+            if (!Application.isMobilePlatform)
+                shadedText(pixelRect, "Fly with W,A,S,D or by dragging with mouse.\nTake photos with Space or mouse click.", 100, new Color(0.8f, 0.7f, 1.0f, alpha));
+            else
+                shadedText(pixelRect, "Fly by dragging.\nTap to take photos.", 100, new Color(0.8f, 0.7f, 1.0f, alpha));
+
         }
     }
 }

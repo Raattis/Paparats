@@ -20,7 +20,6 @@ public class PlayerPosition : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     void Update()
@@ -32,7 +31,7 @@ public class PlayerPosition : MonoBehaviour
         Vector2 touchDelta = Vector2.zero;
         if (Input.touchCount > 0)
         {
-            Vector2 delta = (Input.touches[0].position - touchStart) / Camera.main.pixelHeight * 2.0f;
+            Vector2 delta = (Input.touches[0].position - touchStart) / Camera.main.pixelHeight * 4.0f;
             if (Input.touches[0].phase == TouchPhase.Ended && delta.magnitude < 0.002f && Input.touches[0].fingerId == touchId)
             {
                 Photo.TakePhoto();
@@ -50,7 +49,7 @@ public class PlayerPosition : MonoBehaviour
         }
         else if (touchId == -1)
         {
-            Vector2 mouseDelta = (new Vector2(Input.mousePosition.x, Input.mousePosition.y) - touchStart) / Camera.main.pixelHeight * 2.0f;
+            Vector2 mouseDelta = (new Vector2(Input.mousePosition.x, Input.mousePosition.y) - touchStart) / Camera.main.pixelHeight * 4.0f;
             if (Input.GetMouseButtonUp(0) && mouseDelta.magnitude < 0.002f)
             {
                 Photo.TakePhoto();
@@ -64,14 +63,18 @@ public class PlayerPosition : MonoBehaviour
             {
                 touchDelta = mouseDelta;
             }
-
         }
 
-        float horizontal = touchDelta.x + Input.GetAxis("Horizontal");
-        float vertical = touchDelta.y + Input.GetAxis("Vertical");
+        touchDelta.x += Input.GetAxis("Horizontal");
+        touchDelta.y += Input.GetAxis("Vertical");
 
-        x += Time.deltaTime * speed.x * horizontal;
-        y += Time.deltaTime * speed.y * vertical;
+        if (touchDelta.magnitude > 1.0f)
+        {
+            touchDelta = touchDelta / touchDelta.magnitude;
+        }
+
+        x += Time.deltaTime * speed.x * touchDelta.x;
+        y += Time.deltaTime * speed.y * touchDelta.y;
 
 		x = Mathf.Clamp(x, minX, maxX);
 		y = Mathf.Clamp(y, minY, maxY);
