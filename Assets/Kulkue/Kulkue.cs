@@ -36,17 +36,18 @@ public class Kulkue : MonoBehaviour
 		if (t > lastSpawnTime + spawnInterval)
 		{
 			GameObject kulkijaPrefab = kulkijaPool[(int)(Random.value * kulkijaPool.Count)];
-
 			GameObject go = GameObject.Instantiate<GameObject>(kulkijaPrefab, transform, false);
-
+			
 			KulkijaState kulkija = new KulkijaState();
-			kulkija.parallax = go.GetComponent<Parallax>();
+
 			kulkija.walkDir = Random.value < 0.5 ? -1 : 1;
 			kulkija.speed = Random.value * 2 + 5f;
 
+			kulkija.parallax = go.AddComponent<Parallax>();
 			kulkija.parallax.transform.localPosition = new Vector3(walkArea.localScale.x / 2 * -1 * kulkija.walkDir, walkArea.localPosition.y, 0);
-			kulkija.parallax.parallaxScale = 0.6f + ((Random.value * 2f) - 1f) * 0.75f;
-			kulkija.parallax.gameObject.GetComponent<SpriteRenderer>().sortingOrder = kulkija.parallax.parallaxScale < 0.6 ? -1 : 1;
+			kulkija.parallax.parallaxScale = 0.6f + ((Random.value * 2f) - 1f) * 0.2f;
+
+			go.GetComponent<Spriter2UnityDX.EntityRenderer>().SortingOrder = kulkija.parallax.parallaxScale < 0.6 ? -1 : 1;
 
 			activeKulkijas.Add(kulkija);
 

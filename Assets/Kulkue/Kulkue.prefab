@@ -127,5 +127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kulkijaPool:
-  - {fileID: 1189930676189024533, guid: 4cf446510735cd142901b658f579dfa7, type: 3}
+  - {fileID: 6338305445555605789, guid: 75b4c9da7755143fc82603a12e217db3, type: 3}
+  - {fileID: 4404995568818147570, guid: b5c2cb6f5561e4eb78f218e3909b5326, type: 3}
+  - {fileID: 4458399165359781341, guid: 094f87d285b024a68b4bc3c11b7fe4d4, type: 3}
+  - {fileID: 3067509651430735626, guid: b5d8bb57dbc9449d1bc6253249b9a6b6, type: 3}
+  - {fileID: 6372410636149934840, guid: f8e75f9d1ec4b4d89bf3346c62b0a420, type: 3}
+  - {fileID: 5136860643332636843, guid: a98da511229fd4ffa968d69a3c2f1de2, type: 3}
+  - {fileID: 2299899015772917688, guid: 39de625a2968e4df99a867f411228afb, type: 3}
   walkArea: {fileID: 2347407001128668792}
