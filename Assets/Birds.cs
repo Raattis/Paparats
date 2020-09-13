@@ -13,7 +13,7 @@ public class Birds : MonoBehaviour
 	List<BirdState> birds = new List<BirdState>();
 
 	float groundDuration = 5f;
-	float riseDuration = 1f;
+	float riseDuration = 0.75f;
 	float flyDuration = 5f;
 	float landDuration = 2f;
 
@@ -41,7 +41,7 @@ public class Birds : MonoBehaviour
 	void Start()
 	{
 		float t = Time.time;
-		stateStartedTime = t;
+		stateStartedTime = t - Random.value * 5f;
 
 	}
 
@@ -98,7 +98,7 @@ public class Birds : MonoBehaviour
 				{
 					BirdState bird = birds[i];
 
-					bird.offset += new Vector2(Mathf.Sin(t * 4 + i) * 0.0125f, Mathf.Sin(t * 2.4f + i) * 0.01f);
+					bird.offset += new Vector2(Mathf.Sin(t * 4 + i) * 0.018f, Mathf.Sin(t * 2.4f + i) * 0.04f);
 
 					bird.trans.localPosition = bird.originalPosition + bird.offset;
 				}
