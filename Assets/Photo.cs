@@ -23,6 +23,9 @@ public class Photo : MonoBehaviour
 
     List<FloatingScore> floatingScores = new List<FloatingScore>();
 
+    float money = 0.0f;
+    int filmLeft = 16;
+
     void Start()
     {
         
@@ -35,7 +38,7 @@ public class Photo : MonoBehaviour
         if (reloadTimer > 0)
             reloadTimer -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Fire1") && reloadTimer <= 0.0f)
+        if (Input.GetButtonDown("Fire1") && reloadTimer <= 0.0f && filmLeft > 0)
         {
             TakePhoto();
             reloadTimer = reloadDuration;
@@ -43,6 +46,9 @@ public class Photo : MonoBehaviour
             Celeb celeb = GameObject.FindObjectOfType<Celeb>();
             float score = celeb.GetScore();
             floatingScores.Add(new FloatingScore(score, celeb.transform.position + new Vector3(0.0f, 1.0f, 0.0f)));
+
+            money += score;
+            filmLeft -= 1;
 
             GetComponent<AudioSource>().PlayOneShot(shutter);
         }
@@ -79,6 +85,18 @@ public class Photo : MonoBehaviour
             style.alignment = TextAnchor.MiddleCenter;
 
             GUI.Label(new Rect(screenPoint.x - 500.0f, screenPoint.y - 50.0f, 1000.0f, 100.0f), "" + floatingScore.score + "€", style);
+        }
+
+        {
+            GUIStyle style = GUIStyle.none;
+            style.normal.textColor = new Color(1.0f, 1.0f, 0.2f);
+            style.fontStyle = FontStyle.Bold;
+            style.fontSize = 40;
+            style.alignment = TextAnchor.MiddleCenter;
+
+            Vector3 screenPoint = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, -transform.position.y));
+            GUI.Label(new Rect(screenPoint.x - 500.0f - 100.0f, screenPoint.y - 100.0f, 1000.0f, 100.0f), "" + money + "€", style);
+            GUI.Label(new Rect(screenPoint.x - 500.0f + 100.0f, screenPoint.y - 100.0f, 1000.0f, 100.0f), "" + filmLeft, style);
         }
     }
 }
