@@ -18,13 +18,6 @@ public class CelebBoundingBox : MonoBehaviour
 	{
 		get
 		{
-			switch (bodyPart)
-			{
-				case BodyPart.Body: return visibleArea;
-				case BodyPart.Feet: return visibleArea * visibleArea * 1.5f;
-				case BodyPart.Tail: return visibleArea * 0.4f;
-				case BodyPart.Head: return visibleArea * visibleArea * 3.0f;
-			}
 			return visibleArea;
 		}
 	}

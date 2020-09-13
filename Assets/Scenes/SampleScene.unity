@@ -327,5 +327,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: world
       objectReference: {fileID: 0}
+    - target: {fileID: 8961835602485570746, guid: b9229b70e1e801f458e257b066234450, type: 3}
+      propertyPath: shutter
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e887aa6ecd7f9046b397a2731658872, type: 3}
+    - target: {fileID: 8961835602485570746, guid: b9229b70e1e801f458e257b066234450, type: 3}
+      propertyPath: reload
+      value: 
+      objectReference: {fileID: 8300000, guid: 870bb14134bc2684981dfc7424aafa54, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9229b70e1e801f458e257b066234450, type: 3}

@@ -4,18 +4,21 @@ using UnityEngine;
 
 struct FloatingScore
 {
-    public string text;
+    public float score;
     public Vector3 pos;
 
-    public FloatingScore(string text, Vector3 pos)
+    public FloatingScore(float text, Vector3 pos)
     {
-        this.text = text;
+        this.score = text;
         this.pos = pos;
     }
 }
 
 public class Photo : MonoBehaviour
 {
+    public AudioClip shutter;
+    public AudioClip reload;
+
     float reloadTimer = 0.0f;
 
     List<FloatingScore> floatingScores = new List<FloatingScore>();
@@ -27,16 +30,26 @@ public class Photo : MonoBehaviour
 
     void Update()
     {
+        float reloadDuration = 1.0f;
+
         if (reloadTimer > 0)
             reloadTimer -= Time.deltaTime;
 
         if (Input.GetButtonDown("Fire1") && reloadTimer <= 0.0f)
         {
             TakePhoto();
-            reloadTimer = 1.0f;
+            reloadTimer = reloadDuration;
 
             Celeb celeb = GameObject.FindObjectOfType<Celeb>();
-            floatingScores.Add(new FloatingScore("" + celeb.GetScore() + "€", celeb.transform.position + new Vector3(0.0f, 1.0f, 0.0f)));
+            float score = celeb.GetScore();
+            floatingScores.Add(new FloatingScore(score, celeb.transform.position + new Vector3(0.0f, 1.0f, 0.0f)));
+
+            GetComponent<AudioSource>().PlayOneShot(shutter);
+        }
+
+        if (reloadTimer + Time.deltaTime >= reloadDuration * 0.7f && reloadTimer < reloadDuration * 0.7f)
+        {
+            GetComponent<AudioSource>().PlayOneShot(reload);
         }
 
         for (int i = floatingScores.Count; i-- > 0; )
@@ -62,10 +75,10 @@ public class Photo : MonoBehaviour
             GUIStyle style = GUIStyle.none;
             style.normal.textColor = new Color(0.8f, 0.3f, 0.3f);
             style.fontStyle = FontStyle.Bold;
-            style.fontSize = 40;
+            style.fontSize = Mathf.RoundToInt(Mathf.Lerp(20.0f, 50.0f, Mathf.Clamp01((floatingScore.score - 10.0f) / 60.0f)));
             style.alignment = TextAnchor.MiddleCenter;
 
-            GUI.Label(new Rect(screenPoint.x - 500.0f, screenPoint.y - 50.0f, 1000.0f, 100.0f), floatingScore.text, style);
+            GUI.Label(new Rect(screenPoint.x - 500.0f, screenPoint.y - 50.0f, 1000.0f, 100.0f), "" + floatingScore.score + "€", style);
         }
     }
 }
