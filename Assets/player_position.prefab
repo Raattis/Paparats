@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minX: -10
   maxX: 10
-  minY: 0
-  maxY: 0
+  minY: -1
+  maxY: 1
 --- !u!114 &5165811922902734950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -668451105
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
